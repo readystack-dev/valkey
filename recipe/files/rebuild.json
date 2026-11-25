@@ -1,0 +1,38 @@
+{
+  "bases": [
+    {
+      "digest": "sha256:fea12ba16096adec0f699ce1c4da2154d320450e56c1f63671f95d2a3551c77b",
+      "layout": "bases/golang_1.27.3-bookworm_972b4110ba0f.oci",
+      "ref": "golang:1.27.3-bookworm@sha256:972b4110ba0f47539a975c31e52c64765e1ff19f2d74469ae4a595c6676e80a5"
+    },
+    {
+      "digest": "sha256:9a04f13b3f80ef056361e30868593b1cfd2279fe19e4081cb93a90bf56819d6a",
+      "layout": "bases/ubuntu_24.04_9c7f200c07e3.oci",
+      "ref": "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+    }
+  ],
+  "engine": {
+    "archive": "toolchain/buildkit.tar",
+    "image_digest": "sha256:e0e67ea9c4bb07bdef683e29f70f3b623d1eb9c82274a9ec04e6bb0511449fb0",
+    "kind": "buildkit",
+    "tag": "moby/buildkit:v0.31.2"
+  },
+  "inputs": {
+    "context": ".",
+    "dockerfile": "Dockerfile.offline.pinned",
+    "mtime_policy": "clamp",
+    "source_date_epoch": 1795380563,
+    "tree_hash": "sha256:4d88b16f849fd86f3501baa48f5691d012f9c6d72d1f427efa41a7c340094992"
+  },
+  "probe": {
+    "exec": "if [ -n \"$VALKEY_PASSWORD\" ]; then export VALKEYCLI_AUTH=\"$VALKEY_PASSWORD\"; fi; case \"$(valkey-cli -h 127.0.0.1 -p 6379 ping)\" in PONG) ;; *) exit 1 ;; esac",
+    "port": 6379,
+    "timeout_s": 180
+  },
+  "schema": "readystack-rebuild-bundle/v0.1",
+  "subject": {
+    "config_digest": "sha256:4f4b09ff40d8dd8d2a907a895ecdd6ed3ec09402b33e276d8da477ca6201ea12",
+    "image_manifest_digest": "sha256:df5b66c64a2b9afd0e7e8fe29801faa0191a1b91714b59d70994020e312ab244",
+    "name": "docker.io/readystack/valkey:9.2.0-CE-ubuntu24.04-r2"
+  }
+}

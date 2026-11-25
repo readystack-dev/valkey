@@ -1,0 +1,19 @@
+# ReadyStack slice definition: chisel-releases (ubuntu-24.04) has no slice for hostname, the program redis's admin
+# handbook runs to reach the server on the container's own address (`hostname -I`, its protected-mode check). Cut from
+# Ubuntu's own hostname .deb, as every canonical slice is; the format follows chisel-releases' own slices. Links libc
+# only. Contents used of hostname 3.23+nmu2ubuntu2 (noble): /usr/bin/hostname, /usr/share/doc/hostname/copyright.
+package: hostname
+
+essential:
+  - hostname_copyright
+
+slices:
+  bins:
+    essential:
+      - libc6_libs
+    contents:
+      /usr/bin/hostname:
+
+  copyright:
+    contents:
+      /usr/share/doc/hostname/copyright:

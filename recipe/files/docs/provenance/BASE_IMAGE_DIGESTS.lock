@@ -1,0 +1,2 @@
+# base images for valkey (resolve at build_kit)
+ubuntu:24.04

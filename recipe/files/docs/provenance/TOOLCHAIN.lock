@@ -1,0 +1,111 @@
+{
+  "apt_refresh": [
+    {
+      "min_version": "10.42-4ubuntu2.2",
+      "package": "libpcre2-8-0",
+      "reason": "UBUNTU-CVE-2026-103111, UBUNTU-CVE-2026-86145, UBUNTU-CVE-2026-89157, UBUNTU-CVE-2026-89161: libpcre2-8-0 10.42-4ubuntu2.1 -> 10.42-4ubuntu2.2"
+    },
+    {
+      "min_version": "2.39-0ubuntu8.12",
+      "package": "libc6",
+      "reason": "UBUNTU-CVE-2026-84243: libc6 2.39-0ubuntu8.9 -> 2.39-0ubuntu8.12"
+    }
+  ],
+  "binaries_from_source": [
+    {
+      "name": "valkey-server",
+      "out_path": "/usr/local/bin/valkey-server",
+      "verify_subcmd": "--version"
+    },
+    {
+      "name": "valkey-cli",
+      "out_path": "/usr/local/bin/valkey-cli",
+      "verify_subcmd": "--version"
+    }
+  ],
+  "build_method": "source-rebuild-c",
+  "chain_id": 1195,
+  "dep_bumps": [],
+  "expected_residuals": [],
+  "images": [
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "builder"
+    },
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "offline_builder"
+    },
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "base"
+    }
+  ],
+  "mod_replaces": [],
+  "runtime_base": {
+    "kind": "chisel",
+    "provides": [
+      "valkey-server",
+      "valkey-cli",
+      "valkey-benchmark",
+      "valkey-check-rdb",
+      "valkey-check-aof",
+      "valkey-sentinel",
+      "redis-server",
+      "redis-cli",
+      "redis-benchmark",
+      "redis-check-rdb",
+      "redis-check-aof",
+      "redis-sentinel"
+    ],
+    "shell": true,
+    "slice_defs": [
+      "hostname"
+    ],
+    "slices": [
+      "libssl3t64_libs",
+      "libgcc-s1_libs"
+    ],
+    "tools": [
+      "sed",
+      "tar",
+      "mv",
+      "id",
+      "grep",
+      "hostname"
+    ]
+  },
+  "schema": "kitforge.toolchain_lock.v1",
+  "slug": "valkey",
+  "source": {
+    "build_cmds": [
+      "make -j\"$(nproc)\" all BUILD_TLS=yes USE_FAST_FLOAT=yes",
+      "make install PREFIX=/opt/valkey BUILD_TLS=yes"
+    ],
+    "build_env": {
+      "BUILD_TLS": "yes",
+      "USE_FAST_FLOAT": "yes"
+    },
+    "build_packages": [
+      "build-essential",
+      "pkg-config",
+      "libssl-dev",
+      "ca-certificates"
+    ],
+    "build_system": "make",
+    "builder_image": "ubuntu:24.04",
+    "commit": "d23684e3ec302240754664417e3b99df23e8e4c9",
+    "commit_epoch": 1795056411,
+    "install_prefix": "/opt/valkey",
+    "ref": "9.2.0",
+    "repo": "https://github.com/valkey-io/valkey",
+    "source_date_epoch": 1795380563,
+    "source_date_epoch_basis": "release-cut",
+    "source_date_epoch_provenance": "the time release 9.2.0-CE-ubuntu24.04-r2 was cut (2026-11-22T20:49:23Z), by scripts/retarget.py --rev-bump: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit d23684e3ec30, dated 2026-11-19T02:46:51Z (source.commit_epoch).",
+    "vendored_deps": true
+  },
+  "version": "9.2.0"
+}

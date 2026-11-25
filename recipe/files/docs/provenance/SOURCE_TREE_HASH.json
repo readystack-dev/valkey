@@ -1,0 +1,9 @@
+{
+  "schema": "kitforge.source_tree_hash.v1",
+  "slug": "valkey",
+  "repo": "https://github.com/valkey-io/valkey",
+  "ref": "9.2.0",
+  "commit": "d23684e3ec302240754664417e3b99df23e8e4c9",
+  "tree_listing_sha256": "349cea9dd30beb04d82c8f4af26837872a747688a99daad2b7d44e0627e2e99e",
+  "file_count": 2060
+}

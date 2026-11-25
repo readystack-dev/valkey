@@ -1,0 +1,7 @@
+image_manifest_digest=sha256:df5b66c64a2b9afd0e7e8fe29801faa0191a1b91714b59d70994020e312ab244
+config_digest=sha256:4f4b09ff40d8dd8d2a907a895ecdd6ed3ec09402b33e276d8da477ca6201ea12
+tag=readystack/valkey:9.2.0-CE-ubuntu24.04-r2
+probe_port=6379
+probe_path=PING
+probe_timeout=180
+probe_exec=if [ -n "$VALKEY_PASSWORD" ]; then export VALKEYCLI_AUTH="$VALKEY_PASSWORD"; fi; case "$(valkey-cli -h 127.0.0.1 -p 6379 ping)" in PONG) ;; *) exit 1 ;; esac
