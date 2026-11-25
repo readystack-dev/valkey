@@ -5,7 +5,35 @@ The offline build kit for the Docker image `readystack/valkey:9.2.0-CE-ubuntu24.
 - Release: [9.2.0-CE-ubuntu24.04-r2](https://github.com/readystack-dev/valkey/releases/tag/9.2.0-CE-ubuntu24.04-r2)
 - Image: [`docker.io/readystack/valkey:9.2.0-CE-ubuntu24.04-r2`](https://hub.docker.com/r/readystack/valkey/tags), manifest digest `sha256:df5b66c64a2b9afd0e7e8fe29801faa0191a1b91714b59d70994020e312ab244`
 - Product page: https://readystack.dev/products/valkey
+- Source and build recipe: https://readystack.dev/products/valkey/recipe
+- Build trail: https://readystack.dev/products/valkey/trail/9.2.0-CE-ubuntu24.04-r2
 - Defects: this repository's Issues (defects recorded from 25 November 2026 on) and https://readystack.dev/defects.html?product=valkey
+
+## The image
+
+Single container, single self-contained C binary (valkey-server) compiled from source, foreground process (PID 1). An in-memory key-value data store; state persists to disk as an RDB snapshot (and optionally an AOF) under /data. NO relational/SQL database, NO external datastore, NO sidecar. Drop-in Redis-compatible (RESP protocol, reports redis_version 7.2.4 for client compat).
+
+## Who uses Valkey and why
+
+Developers who need a key-value data store for caching, message queues, sessions and other real-time workloads.
+
+Valkey is an open-source key-value datastore and data structure server, used for caching, message queues and as a primary database, with a plugin system for new data structures.
+
+A typical use: A web application computes the same expensive results again and again. It stores each result in Valkey under a key with a timeout; later requests read the stored value instead of recomputing it, and Valkey deletes the entries when their timeout expires.
+
+From the upstream project's own description: https://github.com/valkey-io/valkey, https://valkey.io/, https://valkey.io/commands/expire/.
+
+## This release
+
+- Docker Scout policy grade at release: **A** (94%), graded 2026-11-22 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
+  - Docker Scout counts 16 packages with copyleft licences (GPL, LGPL, MPL), all of them operating-system packages (it counts only packages whose licence it can read; the SBOM lists every component).
+- Signed with ReadyStack's release key (fingerprint `04daa92344a52dbc`): https://readystack.dev/keys/cosign.pub.
+- Runs as a non-root user (`valkey`).
+- Attestations on the image: an SPDX SBOM and SLSA provenance v1.
+- Rebuilt from this kit with network egress blocked on 2026-11-22; the rebuilt image digest is the published one.
+- Base: Ubuntu 24.04.
+
+The current grade, measured again every day, is on https://readystack.dev/products/valkey.
 
 Valkey is distributed under its upstream licence (BSD-3-Clause); the kit contains upstream's source under that licence, and each vendored component under its own.
 
@@ -39,3 +67,5 @@ The build trail (`ReadyStack-valkey-9.2.0-CE-ubuntu24.04-r2.trail.json`, signed 
 ## This repository
 
 `recipe/` holds the kit's recipe files (Dockerfiles, build scripts, pins) as published at https://readystack.dev/products/valkey/recipe. The complete kit is the release download. Each release is a tag here.
+
+— ReadyStack · https://readystack.dev
