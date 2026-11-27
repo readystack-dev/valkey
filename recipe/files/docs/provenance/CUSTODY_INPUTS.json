@@ -2,8 +2,8 @@
   "schema": "kitforge.custody_inputs.v1",
   "slug": "valkey",
   "repo": "https://github.com/valkey-io/valkey",
-  "ref": "9.2.0",
-  "commit": "d23684e3ec302240754664417e3b99df23e8e4c9",
+  "ref": "9.2.1",
+  "commit": "d1a551720f5feb1a2ff5b9a7b5e22520ae77eeef",
   "edition": "CE",
   "ce_audit": {
     "ce_only": true,

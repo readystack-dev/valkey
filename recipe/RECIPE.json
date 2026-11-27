@@ -1,11 +1,11 @@
 {
  "schema": "readystack.recipe.v1",
  "slug": "valkey",
- "tag": "9.2.0-CE-ubuntu24.04-r2",
- "tarball": "ReadyStack-valkey-9.2.0-CE-ubuntu24.04-r2.tar.gz",
- "tarball_sha256": "d20fbcab5792f855f4f4891c1ded5aa9688e21de8aa3ecae34aa66accd739618",
- "kit_root": "9.2.0-CE-ubuntu24.04-r2",
- "generated_at": "2026-11-22T21:40:19Z",
+ "tag": "9.2.1-CE-ubuntu24.04-r1",
+ "tarball": "ReadyStack-valkey-9.2.1-CE-ubuntu24.04-r1.tar.gz",
+ "tarball_sha256": "8861e518436aba86666f19d4a31473a03bbd36b181fd0b16fcef3db3f7d40757",
+ "kit_root": "9.2.1-CE-ubuntu24.04-r1",
+ "generated_at": "2026-11-27T15:59:12Z",
  "generator": "KitForge release/recipe_publish.py",
  "dockerfile": "Dockerfile.offline.pinned",
  "build_script": "BUILD_OFFLINE.sh",
@@ -13,16 +13,16 @@
  "pins": {
   "upstream": {
    "repo": "https://github.com/valkey-io/valkey",
-   "ref": "9.2.0",
-   "commit": "d23684e3ec302240754664417e3b99df23e8e4c9",
-   "url": "https://github.com/valkey-io/valkey/tree/d23684e3ec302240754664417e3b99df23e8e4c9",
+   "ref": "9.2.1",
+   "commit": "d1a551720f5feb1a2ff5b9a7b5e22520ae77eeef",
+   "url": "https://github.com/valkey-io/valkey/tree/d1a551720f5feb1a2ff5b9a7b5e22520ae77eeef",
    "from": "docs/provenance/BUILD_RECIPE.json"
   },
   "fetches": [
    {
     "kind": "git",
     "url": "https://github.com/valkey-io/valkey",
-    "ref": "9.2.0"
+    "ref": "9.2.1"
    },
    {
     "kind": "http",
@@ -53,14 +53,14 @@
    ]
   },
   "build_method": "source-rebuild-c",
-  "source_date_epoch": 1795380563,
-  "source_date_epoch_utc": "2026-11-22T20:49:23Z",
+  "source_date_epoch": 1795692143,
+  "source_date_epoch_utc": "2026-11-26T11:22:23Z",
   "target": {
-   "image_manifest_digest": "sha256:df5b66c64a2b9afd0e7e8fe29801faa0191a1b91714b59d70994020e312ab244",
-   "config_digest": "sha256:4f4b09ff40d8dd8d2a907a895ecdd6ed3ec09402b33e276d8da477ca6201ea12",
-   "image": "readystack/valkey:9.2.0-CE-ubuntu24.04-r2"
+   "image_manifest_digest": "sha256:c0ed093167c7835f8f3d797fa7b6eb7ae6f45c41282b8c5cc314201f17204c9b",
+   "config_digest": "sha256:c419e35780b6d28dfe9ef14fd0a773d2aec8cc8d31a9f5772d0a4d5b6c8fc2e7",
+   "image": "readystack/valkey:9.2.1-CE-ubuntu24.04-r1"
   },
-  "checksummed_files": 4314
+  "checksummed_files": 4316
  },
  "files": [
   {
@@ -80,9 +80,9 @@
   },
   {
    "path": "CHECKSUMS.sha256",
-   "size": 535952,
-   "sha256": "6fea7198c6c39df352f9164b250f61e1f83a8764bc304e252337b7b1638fbb31",
-   "lines": 4314,
+   "size": 536217,
+   "sha256": "a7e1ba31431e5c1ea8520c6b61752811c005ec4c733f13ee84c11eb8dc154388",
+   "lines": 4316,
    "public": "account",
    "stored": "gzip"
   },
@@ -96,21 +96,21 @@
   {
    "path": "Dockerfile",
    "size": 5447,
-   "sha256": "54c68a46933521fc67d01944fe17a152f3b42d07813bb0d8283b7b0f8faa63f8",
+   "sha256": "1bd8155c293da5002ae63ea3542442400cba322ef1f2dc1e4c36f3506c5052ce",
    "lines": 73,
    "public": "account"
   },
   {
    "path": "Dockerfile.offline",
    "size": 5447,
-   "sha256": "54c68a46933521fc67d01944fe17a152f3b42d07813bb0d8283b7b0f8faa63f8",
+   "sha256": "1bd8155c293da5002ae63ea3542442400cba322ef1f2dc1e4c36f3506c5052ce",
    "lines": 73,
    "public": "account"
   },
   {
    "path": "Dockerfile.offline.pinned",
    "size": 5447,
-   "sha256": "54c68a46933521fc67d01944fe17a152f3b42d07813bb0d8283b7b0f8faa63f8",
+   "sha256": "1bd8155c293da5002ae63ea3542442400cba322ef1f2dc1e4c36f3506c5052ce",
    "lines": 73,
    "public": "preview",
    "preview_lines": 24
@@ -118,50 +118,50 @@
   {
    "path": "Dockerfile.vendor",
    "size": 6711,
-   "sha256": "a3dfa29076add904fa918dd4f9a10c982e77d47f0e7aedc55a527d13fbd37156",
+   "sha256": "4179bde2b8ad0f81eb33dd9676ba0c9c68138b8e8eba7ea190a35045312730a3",
    "lines": 56,
    "public": "account"
   },
   {
    "path": "FILE_MODES.tsv",
-   "size": 271194,
-   "sha256": "80ca74f6a2fb86e3dbfb570f8db5a9e1ebb58e173ba2743d275b822c6be62f6a",
-   "lines": 4550,
+   "size": 271331,
+   "sha256": "3ffa5ada8c23131b915655a97d5a7373fb3eb6b90a728d7debf1b1581e0996ea",
+   "lines": 4552,
    "public": "account",
    "stored": "gzip"
   },
   {
    "path": "MANIFEST.txt",
-   "size": 242630,
-   "sha256": "509d9559254faa8b6ab900f441f51d770899d6e4fc4c106834603128168cfbfd",
-   "lines": 4316,
+   "size": 242759,
+   "sha256": "0af2942dc2ceb45dda2229b2fac0ef7909aad6018150a2daf7567b0cc581011f",
+   "lines": 4318,
    "public": "account"
   },
   {
    "path": "README.md",
-   "size": 3324,
-   "sha256": "44c2c680676a8d3d1423570158f0e897af512d4bd8fd4f46fafb45504e607690",
-   "lines": 40,
+   "size": 3504,
+   "sha256": "87ced57a4cd87110a36c3c1a3a9aca9c67436a44be93ff5853e7f15429060774",
+   "lines": 42,
    "public": "account"
   },
   {
    "path": "SOURCE_DATE_EPOCH.txt",
    "size": 11,
-   "sha256": "e69b5c1c5ee748cd4d144d38cfff1c65ad44d07a437fb15fddded8b8d0126f88",
+   "sha256": "6335e226e498d5103c30c759782570f6adda0bfe036e1a3d835787ded4b1e6bd",
    "lines": 1,
    "public": "full"
   },
   {
    "path": "TARGET_DIGEST.txt",
    "size": 445,
-   "sha256": "a03823f929d3d35397fe5375d4b34ba90a714dc4162978b401ca087ddd2e8d03",
+   "sha256": "8f689009b552c3d44b915c303007488f5b9dc3cdf2c019b15fb55452fb92cc04",
    "lines": 7,
    "public": "full"
   },
   {
    "path": "TRADEMARK.md",
    "size": 469,
-   "sha256": "db3033dd97ab6d2fa8de12453b3144fc309036ad34d4c5915eee36e39a0fa73a",
+   "sha256": "5bf88eb01320438e14204f9a3ca69637ec30a020e7643d68c7b307ad0adf0f93",
    "lines": 13,
    "public": "account"
   },
@@ -182,21 +182,21 @@
   {
    "path": "docs/PROVENANCE.md",
    "size": 2604,
-   "sha256": "dd279f4be509a352787aaf830a3f398f58bbfdb4d84b82aca97c74492ae19da5",
+   "sha256": "85b70a460a0a1862494749f557bad1a1170540f8af61ea8b7177c663cb80066c",
    "lines": 36,
    "public": "account"
   },
   {
    "path": "docs/REBUILD.md",
-   "size": 6071,
-   "sha256": "3fd0b3ae06bd59351638b2992f4541013322eeb57039a65f20827447aee3bab9",
+   "size": 6073,
+   "sha256": "25280245b8cb9da60545a5fa746644b1ee635bfb90df316b0935611158a7afa9",
    "lines": 60,
    "public": "account"
   },
   {
    "path": "docs/VERIFY.md",
    "size": 2017,
-   "sha256": "f896c65ffff1bcc89d61c049f1011da9e6325c15bcceb072fa3fedf94343ddd4",
+   "sha256": "bf2357b187ab3fc35e6e30881408154947e0cd5aafc4ddfedb1a9a1f2cd74d67",
    "lines": 34,
    "public": "account"
   },
@@ -209,43 +209,43 @@
   },
   {
    "path": "docs/provenance/BUILD_RECIPE.json",
-   "size": 4135,
-   "sha256": "5485e1e3ba2f52bd884cad0842ce7f3420d4620aba3db164dd558919ba592c6d",
+   "size": 4124,
+   "sha256": "54163945a87e856b9bbbe50e3249971c90697f0e0234b2eb0028e8c587e9274f",
    "lines": 103,
    "public": "account"
   },
   {
    "path": "docs/provenance/CUSTODY_INPUTS.json",
    "size": 646,
-   "sha256": "84d156033686a71bfb0eac1675093a3fc0813ea8e40b73e9fd0898e97828b5ad",
+   "sha256": "15b0b21063376798c832f7172a0eafee9d71bd110e710b417658a2f83c2e97d9",
    "lines": 17,
    "public": "account"
   },
   {
    "path": "docs/provenance/SOURCE_FILE_MANIFEST.json",
-   "size": 78629,
-   "sha256": "b5b978f42395aaa2756b981149008e1c7155b029129bb33e8462c0ef64cce3ce",
-   "lines": 2067,
+   "size": 78675,
+   "sha256": "986bc54c1f694b44e2c78f22add74677dab2d74f3d6c5a4f69626edfa58343be",
+   "lines": 2068,
    "public": "account"
   },
   {
    "path": "docs/provenance/SOURCE_TREE_HASH.json",
    "size": 304,
-   "sha256": "4f3c0a8d82ace5947b51dc66aeb43f9a56cceef6a84b37a2bda7bed019e42dfa",
+   "sha256": "e9faa2ed22cf36f40b2cb6845dec85ae03678bb3f7d4cc37196c4a1b77388d4d",
    "lines": 9,
    "public": "full"
   },
   {
    "path": "docs/provenance/SYSTEM_PINNING.lock",
    "size": 619,
-   "sha256": "0c61e15872239de495fd90b20c6365201a735ab491e3a054c6ccd866d95fe6dd",
+   "sha256": "b5b93c934530458cf0adb09478cfd14b681956368cec6a5713ea56fae745d6cc",
    "lines": 20,
    "public": "account"
   },
   {
    "path": "docs/provenance/TOOLCHAIN.lock",
-   "size": 3135,
-   "sha256": "b1b9b064318e6dbe5ad6bbc4a5b7641251290ef3d73fdc5f60106339d4746ded",
+   "size": 3124,
+   "sha256": "be7ded3c3e495747b9bcfd9f1b717337ac75a1651f983cc5dc26fe8c8c1038c4",
    "lines": 111,
    "public": "account"
   },
@@ -259,7 +259,7 @@
   {
    "path": "rebuild.json",
    "size": 1583,
-   "sha256": "66de596c7f139a8dfa1868f1ca1153c91f9a1f95df41e8f5e3ed52bcfee91f20",
+   "sha256": "bc949b14546d99f1885f593f14a61993846c788c31c828f12d37ff86cd306b45",
    "lines": 38,
    "public": "account"
   },
@@ -287,7 +287,7 @@
   {
    "path": "valkey.conf",
    "size": 856,
-   "sha256": "14ca21155dadefb8363b4796d9f6c9f3efd406b9771f93d8ee8564417540ade5",
+   "sha256": "0dbdecf455788dc56be288d0c6b43bbc89bba976ab23cc6754bc9e74a1eded94",
    "lines": 25,
    "public": "account"
   }
@@ -299,16 +299,16 @@
    "bytes": 330407104
   },
   "docs": {
-   "files": 2121,
-   "bytes": 25437324
+   "files": 2122,
+   "bytes": 25450157
   },
   "toolchain": {
    "files": 1,
    "bytes": 111529472
   },
   "vendored": {
-   "files": 2146,
-   "bytes": 137986350
+   "files": 2147,
+   "bytes": 138008220
   }
  },
  "redacted_files": 0

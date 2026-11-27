@@ -1,7 +1,7 @@
 {
   "schema": "kitforge.source_file_manifest.v1",
   "slug": "valkey",
-  "file_count": 2060,
+  "file_count": 2061,
   "files": [
     ".cmake-format.yaml",
     ".config/format.yml",
@@ -1901,6 +1901,7 @@
     "tests/unit/cluster/replica-migration.tcl",
     "tests/unit/cluster/replica-priority.tcl",
     "tests/unit/cluster/replica-redirect.tcl",
+    "tests/unit/cluster/replicaof-cycle.tcl",
     "tests/unit/cluster/resharding.tcl",
     "tests/unit/cluster/scripting.tcl",
     "tests/unit/cluster/sharded-pubsub.tcl",

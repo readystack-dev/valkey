@@ -24,7 +24,7 @@
     }
   ],
   "build_method": "source-rebuild-c",
-  "chain_id": 1195,
+  "chain_id": 1282,
   "dep_bumps": [],
   "expected_residuals": [],
   "images": [
@@ -97,15 +97,15 @@
     ],
     "build_system": "make",
     "builder_image": "ubuntu:24.04",
-    "commit": "d23684e3ec302240754664417e3b99df23e8e4c9",
-    "commit_epoch": 1795056411,
+    "commit": "d1a551720f5feb1a2ff5b9a7b5e22520ae77eeef",
+    "commit_epoch": 1795672701,
     "install_prefix": "/opt/valkey",
-    "ref": "9.2.0",
+    "ref": "9.2.1",
     "repo": "https://github.com/valkey-io/valkey",
-    "source_date_epoch": 1795380563,
+    "source_date_epoch": 1795692143,
     "source_date_epoch_basis": "release-cut",
-    "source_date_epoch_provenance": "the time release 9.2.0-CE-ubuntu24.04-r2 was cut (2026-11-22T20:49:23Z), by scripts/retarget.py --rev-bump: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit d23684e3ec30, dated 2026-11-19T02:46:51Z (source.commit_epoch).",
+    "source_date_epoch_provenance": "the time release 9.2.1-CE-ubuntu24.04-r1 was cut (2026-11-26T11:22:23Z), by scripts/retarget.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit d1a551720f5f, dated 2026-11-26T05:58:21Z (source.commit_epoch).",
     "vendored_deps": true
   },
-  "version": "9.2.0"
+  "version": "9.2.1"
 }

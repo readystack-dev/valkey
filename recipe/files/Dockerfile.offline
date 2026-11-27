@@ -10,7 +10,7 @@ RUN --mount=type=bind,source=vendored/build-debs,target=/tmp/bdebs \
     { [ -z "$bad" ] || { echo "vendored debs not installed at their vendored version:$bad" >&2; false; }; }
 WORKDIR /src
 COPY vendored/valkey-src/ .
-ARG SOURCE_DATE_EPOCH=1795380563
+ARG SOURCE_DATE_EPOCH=1795692143
 ENV SOURCE_DATE_EPOCH=${SOURCE_DATE_EPOCH}
 ENV BUILD_TLS=yes USE_FAST_FLOAT=yes
 RUN make -j"$(nproc)" all BUILD_TLS=yes USE_FAST_FLOAT=yes
@@ -27,11 +27,11 @@ FROM golang:1.27.3-bookworm@sha256:972b4110ba0f47539a975c31e52c64765e1ff19f2d744
 WORKDIR /probe
 COPY rs-probe.go main.go
 COPY rs-probe.mod go.mod
-ENV CGO_ENABLED=0 GOTOOLCHAIN=local GOFLAGS="-buildvcs=false" GOPROXY=off SOURCE_DATE_EPOCH=1795380563
+ENV CGO_ENABLED=0 GOTOOLCHAIN=local GOFLAGS="-buildvcs=false" GOPROXY=off SOURCE_DATE_EPOCH=1795692143
 RUN go build -trimpath -ldflags='-s -w' -o /rs-probe .
 # the chiselled rootfs (vendored/chisel, cut by Dockerfile.vendor), the service user, the binaries
 FROM ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289 AS rootfs
-ARG SOURCE_DATE_EPOCH=1795380563
+ARG SOURCE_DATE_EPOCH=1795692143
 ADD vendored/chisel/rootfs.tar /rootfs/
 RUN printf 'valkey:x:999:999::/data:/bin/sh\n' >> /rootfs/etc/passwd && printf 'valkey:x:999:\n' >> /rootfs/etc/group && \
     mkdir -p /rootfs/data /rootfs/etc/valkey && chown -R 999:999 /rootfs/data /rootfs/etc/valkey
@@ -52,20 +52,20 @@ RUN --mount=type=bind,source=vendored/chisel,target=/chisel set -eu; \
       { echo "/var/lib/dpkg/status does not list every package of vendored/chisel/packages.tsv" >&2; exit 1; }; \
     rm -rf /rootfs/var/log/dpkg.log /rootfs/var/log/alternatives.log /rootfs/var/log/apt /rootfs/var/cache/ldconfig/aux-cache /rootfs/var/cache/fontconfig
 FROM scratch
-ARG SOURCE_DATE_EPOCH=1795380563
+ARG SOURCE_DATE_EPOCH=1795692143
 COPY --from=rootfs /rootfs/ /
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin PATH=/opt/valkey/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 LABEL org.opencontainers.image.licenses="BSD-3-Clause"
 LABEL org.opencontainers.image.title="Valkey"
 LABEL org.opencontainers.image.source="https://github.com/valkey-io/valkey"
-LABEL org.opencontainers.image.description="Valkey 9.2.0 in-memory key-value data store (BSD-3-Clause, the Linux Foundation fork of Redis)"
-LABEL org.opencontainers.image.version="9.2.0-CE-ubuntu24.04-r2"
+LABEL org.opencontainers.image.description="Valkey 9.2.1 in-memory key-value data store (BSD-3-Clause, the Linux Foundation fork of Redis)"
+LABEL org.opencontainers.image.version="9.2.1-CE-ubuntu24.04-r1"
 LABEL org.opencontainers.image.vendor="ReadyStack.dev"
 LABEL readystack.product="valkey"
 LABEL readystack.edition="CE"
 LABEL readystack.build_method="source-rebuild-c"
 LABEL readystack.open_source_note="BSD-3-Clause Linux Foundation fork of Redis (which went SSPL/RSALv2 at 7.4)"
-LABEL org.opencontainers.image.revision="d23684e3ec302240754664417e3b99df23e8e4c9"
+LABEL org.opencontainers.image.revision="d1a551720f5feb1a2ff5b9a7b5e22520ae77eeef"
 HEALTHCHECK --interval=5s --timeout=120s --start-period=5s \
   CMD if [ -n "$VALKEY_PASSWORD" ]; then export VALKEYCLI_AUTH="$VALKEY_PASSWORD"; fi; case "$(valkey-cli -h 127.0.0.1 -p 6379 ping)" in PONG) ;; *) exit 1 ;; esac || exit 1
 USER valkey

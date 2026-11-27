@@ -21,8 +21,8 @@
     "context": ".",
     "dockerfile": "Dockerfile.offline.pinned",
     "mtime_policy": "clamp",
-    "source_date_epoch": 1795380563,
-    "tree_hash": "sha256:4d88b16f849fd86f3501baa48f5691d012f9c6d72d1f427efa41a7c340094992"
+    "source_date_epoch": 1795692143,
+    "tree_hash": "sha256:519bbd1bbc3a02f48d02d03d8e93530a7d6f325dc35c1c8a4d8c9a17a772a26d"
   },
   "probe": {
     "exec": "if [ -n \"$VALKEY_PASSWORD\" ]; then export VALKEYCLI_AUTH=\"$VALKEY_PASSWORD\"; fi; case \"$(valkey-cli -h 127.0.0.1 -p 6379 ping)\" in PONG) ;; *) exit 1 ;; esac",
@@ -31,8 +31,8 @@
   },
   "schema": "readystack-rebuild-bundle/v0.1",
   "subject": {
-    "config_digest": "sha256:4f4b09ff40d8dd8d2a907a895ecdd6ed3ec09402b33e276d8da477ca6201ea12",
-    "image_manifest_digest": "sha256:df5b66c64a2b9afd0e7e8fe29801faa0191a1b91714b59d70994020e312ab244",
-    "name": "docker.io/readystack/valkey:9.2.0-CE-ubuntu24.04-r2"
+    "config_digest": "sha256:c419e35780b6d28dfe9ef14fd0a773d2aec8cc8d31a9f5772d0a4d5b6c8fc2e7",
+    "image_manifest_digest": "sha256:c0ed093167c7835f8f3d797fa7b6eb7ae6f45c41282b8c5cc314201f17204c9b",
+    "name": "docker.io/readystack/valkey:9.2.1-CE-ubuntu24.04-r1"
   }
 }

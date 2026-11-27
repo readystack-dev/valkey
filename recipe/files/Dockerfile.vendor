@@ -4,7 +4,7 @@
 FROM ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289 AS cvendor
 RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates build-essential pkg-config libssl-dev ca-certificates && rm -rf /var/lib/apt/lists/*
 WORKDIR /src
-RUN git clone --depth 1 --branch 9.2.0 -q https://github.com/valkey-io/valkey . && test "$(git rev-parse HEAD)" = d23684e3ec302240754664417e3b99df23e8e4c9
+RUN git clone --depth 1 --branch 9.2.1 -q https://github.com/valkey-io/valkey . && test "$(git rev-parse HEAD)" = d1a551720f5feb1a2ff5b9a7b5e22520ae77eeef
 RUN rm -rf .git
 FROM ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289 AS builddebvendor
 ENV DEBIAN_FRONTEND=noninteractive

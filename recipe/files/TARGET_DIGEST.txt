@@ -1,6 +1,6 @@
-image_manifest_digest=sha256:df5b66c64a2b9afd0e7e8fe29801faa0191a1b91714b59d70994020e312ab244
-config_digest=sha256:4f4b09ff40d8dd8d2a907a895ecdd6ed3ec09402b33e276d8da477ca6201ea12
-tag=readystack/valkey:9.2.0-CE-ubuntu24.04-r2
+image_manifest_digest=sha256:c0ed093167c7835f8f3d797fa7b6eb7ae6f45c41282b8c5cc314201f17204c9b
+config_digest=sha256:c419e35780b6d28dfe9ef14fd0a773d2aec8cc8d31a9f5772d0a4d5b6c8fc2e7
+tag=readystack/valkey:9.2.1-CE-ubuntu24.04-r1
 probe_port=6379
 probe_path=PING
 probe_timeout=180

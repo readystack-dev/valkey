@@ -1,11 +1,11 @@
 {
   "schema": "kitforge.build_recipe.v1",
   "slug": "valkey",
-  "image": "readystack/valkey:9.2.0-CE-ubuntu24.04-r2",
+  "image": "readystack/valkey:9.2.1-CE-ubuntu24.04-r1",
   "build_method": "source-rebuild-c",
   "source": {
     "repo": "https://github.com/valkey-io/valkey",
-    "ref": "9.2.0",
+    "ref": "9.2.1",
     "build_system": "make",
     "builder_image": "ubuntu:24.04",
     "build_packages": [
@@ -25,11 +25,11 @@
     "install_prefix": "/opt/valkey",
     "vendored_deps": true,
     "_build_note": "Top-level `make all` builds everything from the in-tree deps/ (jemalloc 5.3.0, lua 5.1, libvalkey, linenoise, hdr_histogram, fpconv, fast_float) \u2014 NO dependency download, fully offline-capable once the source tree is present. builder_image is ubuntu:24.04, the runtime's own distro (gcc 13, glibc 2.39): build-essential (gcc/g++/make/libc6-dev; g++ REQUIRED for USE_FAST_FLOAT=yes, a C++ leaf), pkg-config and libssl-dev are vendored as build debs for the offline make. BUILD_TLS=yes compiles TLS in-tree and needs only OpenSSL headers (libssl-dev) at build + libssl3t64 (libssl.so.3) at runtime. `make install PREFIX=/opt/valkey` lays down valkey-server/valkey-cli/valkey-benchmark and symlinks valkey-sentinel/valkey-check-rdb/valkey-check-aof to valkey-server. dep_bumps does NOT apply to C; the Grade-A CVE lever is the fresh base + the debvendor dist-upgrade of libssl3t64/libc6 (same as redis). NEVER run `make test*` \u2014 the deps/ gtest-parallel target does a network git clone (test-only, not in `all`).",
-    "source_date_epoch": 1795380563,
-    "source_date_epoch_provenance": "the time release 9.2.0-CE-ubuntu24.04-r2 was cut (2026-11-22T20:49:23Z), by scripts/retarget.py --rev-bump: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit d23684e3ec30, dated 2026-11-19T02:46:51Z (source.commit_epoch).",
-    "commit": "d23684e3ec302240754664417e3b99df23e8e4c9",
+    "source_date_epoch": 1795692143,
+    "source_date_epoch_provenance": "the time release 9.2.1-CE-ubuntu24.04-r1 was cut (2026-11-26T11:22:23Z), by scripts/retarget.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit d1a551720f5f, dated 2026-11-26T05:58:21Z (source.commit_epoch).",
+    "commit": "d1a551720f5feb1a2ff5b9a7b5e22520ae77eeef",
     "source_date_epoch_basis": "release-cut",
-    "commit_epoch": 1795056411
+    "commit_epoch": 1795672701
   },
   "binaries_from_source": [
     {
